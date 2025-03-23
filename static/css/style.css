@@ -1,0 +1,115 @@
+@font-face {
+    font-family: "Boldonse-Regular";
+    src: url("/static/fonts/Boldonse-Regular.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: "Inter";
+    src: url("/static/fonts/Rubik-VariableFont_wght.ttf") format("truetype");
+  }
+  
+  body {
+    font-family: "Inter", sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    color: #fff;
+}
+
+/* Table Container Styling */
+.customeTabl {
+    width: 90%;
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s;
+    overflow-x: auto; /* Allow horizontal scroll on small screens */
+}
+
+.customeTabl:hover {
+    transform: scale(1.01);
+}
+
+/* Table Styling */
+.tableFixed {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    min-width: 1200px; /* Prevents table from shrinking too much */
+}
+
+.tableFixed th {
+    background-color: #0a55a7;
+    color: white;
+    padding: 12px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.tableFixed td {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    font-size: 17px;
+    color: white;
+}
+
+/* Team Section Styling */
+.teamSection {
+    display: flex;
+    align-items: center;
+}
+
+/* Logo Styling */
+.team-logo {
+    width: 30px;
+    height: 30px;
+    margin-right: 8px;
+    border-radius: 50%;
+    border: 1px solid #ddd;
+    transition: transform 0.3s;
+}
+
+.team-logo:hover {
+    transform: scale(1.1);
+}
+
+/* Highlighted Rows */
+.highlight-row {
+    background-color: rgb(211, 181, 9) !important;
+    color: black;
+    transition: background-color 0.3s;
+}
+
+.lowest-row {
+    background-color: #E10000 !important;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+/* Row Hover Effect */
+.tableFixed tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: background-color 0.3s;
+}
+
+/* Special Styling for Team Names */
+.tableFixed tbody tr td:nth-child(2) {
+    text-transform: uppercase;
+    font-family: "Boldonse-Regular";
+    font-size: 10px;
+}
+
+/* Mobile Styling */
+@media (max-width: 450px) {
+    .hide-mobile {
+        display: none;
+    }
+
+    /* Prevents table from shrinking */
+    .tableFixed {
+        min-width: auto;
+    }
+}

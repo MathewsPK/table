@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dream 11 Point Table</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        body {
+            background: url("{% static 'images/ipl1.jpg' %}") no-repeat center center fixed;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <div class="customeTabl">
+        <h2 style="text-align: center; color: #007bff;"><span style="color: #E10000; font-weight: bold;">Dream 11</span> IPL 2025 Standings</h2>
+        <table class="tableFixed">
+            <thead>
+                <tr>
+                    <th>Pos</th>
+                    <th>Teams</th>
+                    <th>Matches Attended</th>
+                    <th>1st</th>
+                    <th>2nd</th>
+                    <th>3rd</th>
+                    <th>4th</th>
+                    <th>5th</th>
+                    <th>6th</th>
+                    <th>7th</th>
+                    <th>8th</th>
+                    <th>9th</th>
+                    <th>10th</th>
+                    <th>11th</th>
+                    <th>Total Points</th>
+                    <th>Highest Point</th>
+                    <th>Lowest Point</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for stat in team_stats %}
+                <tr class="{% if stat.position == 1 %}highlight-row{% elif forloop.last %}lowest-row{% endif %}">
+                    <td>{{ stat.position }}</td>
+                    <td>
+                        <div class="teamSection">
+                            {% if stat.team.logo %}
+                                <img src="{{ stat.team.logo.url }}" alt="{{ stat.team.name }}" class="team-logo">
+                            {% else %}
+                                No Logo Available
+                            {% endif %}
+                            {{ stat.team.name|upper }}
+                        </div>
+                    </td>
+                    <td>{{ stat.matches_attended }}</td>
+                    <td>{{ stat.position_counts.1 }}</td>
+                    <td>{{ stat.position_counts.2 }}</td>
+                    <td>{{ stat.position_counts.3 }}</td>
+                    <td>{{ stat.position_counts.4 }}</td>
+                    <td>{{ stat.position_counts.5 }}</td>
+                    <td>{{ stat.position_counts.6 }}</td>
+                    <td>{{ stat.position_counts.7 }}</td>
+                    <td>{{ stat.position_counts.8 }}</td>
+                    <td>{{ stat.position_counts.9 }}</td>
+                    <td>{{ stat.position_counts.10 }}</td>
+                    <td>{{ stat.position_counts.11 }}</td>
+                    <td>{{ stat.total_points }}</td>
+                    <td>{{ stat.highest_point }}</td>
+                    <td>{{ stat.lowest_point }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
